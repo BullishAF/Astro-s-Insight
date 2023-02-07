@@ -1,0 +1,31 @@
+---
+import { Image } from "@astrojs/image/components";
+---
+
+<div class="card w-1/3 my-4 mx-auto">
+  <a href="#">
+    <div
+      class="card-container w-10/12 mx-auto border rounded-2xl p-3 flex flex-col justify-center items-center hover:scale-105 transition-all"
+    >
+      <div class="card-image mb-4 border-b-2 p-4">
+        <Image
+          src="/images/post-1.png"
+          alt="blog post image"
+          format="webp"
+          quality={80}
+          height={150}
+          width={440}
+          aspectRatio="4:1"
+        />
+      </div>
+      <div class="card-body">
+        <h3 class="text-2xl">Post Name</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit,
+          nesciunt fugiat! Libero eum consectetur sapiente.
+        </p>
+        <a href="#" class="text-blue-600 hover:text-blue-800"> Read more</a>
+      </div>
+    </div>
+  </a>
+</div>
