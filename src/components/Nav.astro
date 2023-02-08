@@ -2,8 +2,8 @@
 import navData from '../data/navData';
 ---
 
-<header class="border-b shadow-lg flex justify-between h-14 bg-white">
-	<nav class="container mx-auto flex justify-between items-center w-full">
+<header class="border-b shadow-lg flex justify-between h-28 sm:h-14 bg-white">
+	<nav class="container mx-auto flex flex-col justify-between items-center sm:flex-row w-full">
 		<div class="brand flex justify-center items-center">
 			<div class="brand-logo mr-2">
 				<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 256 256"
@@ -51,27 +51,29 @@ import navData from '../data/navData';
 				<h1 class="text-3xl font-medium">blogAstro</h1>
 			</div>
 		</div>
-		<div class="nav-links">
-			<ul class="flex justify-center items-center">
-				{
-					navData.map((link) => (
-						<li class="mx-4 ">
-							<a
-								href={link.path}
-								class="hover:text-blue-600 hover:border-b hover:border-blue-600"
-								data-navLink
-							>
-								{link.name}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-		</div>
-		<div class="nav-cta">
-			<a href="#">
-				<button class="bg-blue-600 w-28 h-10 text-white hover:bg-blue-800"> Subscribe</button>
-			</a>
+		<div class="nav-links flex flex-row w-full justify-between items-center sm:flex-none sm:w-3/5">
+			<div>
+				<ul class="flex justify-center items-center">
+					{
+						navData.map((link) => (
+							<li class="mx-4 ">
+								<a
+									href={link.path}
+									class="hover:text-blue-600 hover:border-b hover:border-blue-600"
+									data-navLink
+								>
+									{link.name}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div class="nav-cta">
+				<a href="#">
+					<button class="bg-blue-600 w-28 h-10 text-white hover:bg-blue-800"> Subscribe</button>
+				</a>
+			</div>
 		</div>
 	</nav>
 </header>

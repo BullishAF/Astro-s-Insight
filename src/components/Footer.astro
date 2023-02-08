@@ -3,13 +3,15 @@ import footerSocialData from '../data/footerSocialData';
 import footerData from '../data/footerData';
 ---
 
-<footer class="bottom-0 relative w-full flex flex-col divide-y-2 divide-black bg-gray-100">
-	<div class="container mx-8">
-		<div class="social-links flex border-b p-8">
-			<h3>Follow Us</h3>
+<footer
+	class="bottom-0 relative w-full flex flex-row sm:flex-col divide-y-2 divide-black bg-gray-100"
+>
+	<div class="container mx-8 flex flex-row sm:flex-col">
+		<div class="social-links flex flex-col sm:flex-row items-center border-b p-8">
+			<h3 class="mt-4">Follow Us</h3>
 			{
 				footerSocialData.map((link) => (
-					<a href={link.path} class="ml-8">
+					<a href={link.path} class="mt-4 sm:ml-8">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 							<path fill="currentColor" d={link.image} />
 						</svg>
@@ -17,7 +19,7 @@ import footerData from '../data/footerData';
 				))
 			}
 		</div>
-		<div class="bottom flex items-center p-8">
+		<div class="bottom flex flex-col sm:flex-row items-center p-8">
 			<div class="logo mr-14">
 				<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 256 256"
 					><g fill="none"
@@ -60,11 +62,11 @@ import footerData from '../data/footerData';
 					></svg
 				>
 			</div>
-			<div class="links">
+			<div class="links flex flex-col sm:flex-row">
 				{
 					footerData.map((link) => (
 						<a
-							class="mr-6 text-gray-600 hover:text-black hover:font-normal active:text-black active:normal focus:text-black focus:normal"
+							class="mr-6 my-2 text-gray-600 hover:text-black hover:font-normal active:text-black active:normal focus:text-black focus:normal"
 							href={link.path}
 						>
 							{link.name}
