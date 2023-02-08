@@ -1,5 +1,6 @@
 ---
 import PostCard from '../components/PostCard.astro';
+import Newsletter from '../components/Newsletter.astro';
 import Layout from '../layouts/Layout.astro';
 const allPosts = await Astro.glob('./blog/*.md');
 const post1 = allPosts[0];
@@ -27,6 +28,7 @@ const post3 = allPosts[2];
 					<PostCard frontmatter={post3.frontmatter} url={post3.url} />
 				</div>
 			</section>
+			<Newsletter />
 		</div>
 	</main>
 </Layout>
