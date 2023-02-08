@@ -1,0 +1,32 @@
+---
+import PostCard from '../components/PostCard.astro';
+import Layout from '../layouts/Layout.astro';
+const allPosts = await Astro.glob('./blog/*.md');
+let randNum = Math.floor(Math.random() * 1000) % (allPosts.length - 1);
+let randPost = allPosts[randNum];
+---
+
+<Layout>
+	<section class="404 my-8 min-h-[440px]">
+		<div class="container mx-auto text-center">
+			<div>
+				<h1 class="text-4xl text-orange-600 font-extrabold">404</h1>
+				<p class="text-2xl text-orange-600 font-bold">Page not found</p>
+				<p class="text-lg text-black">Sorry, the page you were looking for doesn't exist.</p>
+			</div>
+			<div class="my-4">
+				<a href="/">
+					<div
+						class="home bg-blue-600 text-white w-1/2 sm:w-1/5 p-2 mx-auto hover:scale-110 hover:bg-white hover:text-blue-600 hover:font-bold hover:border active:scale-75 transition-all"
+					>
+						<h1 class="text-2xl">You can go home</h1>
+					</div>
+				</a>
+				<h2 class="text-2xl my-5">Or</h2>
+				<div>
+					<PostCard frontmatter={randPost.frontmatter} url={randPost.url} />
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
