@@ -1,39 +1,32 @@
 ---
-import PostCard from "../components/PostCard.astro";
-import Layout from "../layouts/Layout.astro";
+import PostCard from '../components/PostCard.astro';
+import Layout from '../layouts/Layout.astro';
+const allPosts = await Astro.glob('./blog/*.md');
+const post1 = allPosts[0];
+const post2 = allPosts[1];
+const post3 = allPosts[2];
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="my-8">
-    <div class="container mx-auto text-center flex flex-col">
-      <!-- Popular -->
-      <section>
-        <div class="top flex justify-between items-center border-b-2 p-4">
-          <h2 class="text-2xl">Popular Posts</h2>
-          <a
-            href="/blog"
-            class="flex justify-center items-center hover:border-b transition-all"
-          >
-            <p class="mr-2">See all posts</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="16"
-              viewBox="0 0 24 24"
-              ><path
-                fill="currentColor"
-                d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z"></path></svg
-            >
-          </a>
-        </div>
-        <div
-          class="posts flex flex-wrap justify-center items-center mx-auto my-4"
-        >
-          <PostCard />
-          <PostCard />
-          <PostCard />
-        </div>
-      </section>
-    </div>
-  </main>
+	<main class="my-8">
+		<div class="container mx-auto text-center flex flex-col">
+			<!-- Popular -->
+			<section>
+				<div class="top flex justify-between items-center border-b-2 p-4">
+					<h2 class="text-2xl">Popular Posts</h2>
+					<a href="/blog" class="flex justify-center items-center hover:border-b transition-all">
+						<p class="mr-2">See all posts</p>
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 24 24"
+							><path fill="currentColor" d="M16.01 11H4v2h12.01v3L20 12l-3.99-4v3z"></path></svg
+						>
+					</a>
+				</div>
+				<div class="posts flex flex-wrap justify-center items-center mx-auto my-4">
+					<PostCard frontmatter={post1.frontmatter} url={post1.url} />
+					<PostCard frontmatter={post2.frontmatter} url={post2.url} />
+					<PostCard frontmatter={post3.frontmatter} url={post3.url} />
+				</div>
+			</section>
+		</div>
+	</main>
 </Layout>

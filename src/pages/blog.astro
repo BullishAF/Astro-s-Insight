@@ -1,0 +1,16 @@
+---
+import PostCard from '../components/PostCard.astro';
+import Layout from '../layouts/Layout.astro';
+const allPosts = await Astro.glob('./blog/*.md');
+---
+
+<Layout title="blog">
+	<main class="">
+		<div class="my-8">
+			<h1 class="text-3xl text-center">All Posts</h1>
+		</div>
+		<div class="posts flex flex-wrap justify-center items-center mx-auto mt-4 mb-16">
+			{allPosts.map((post) => <PostCard frontmatter={post.frontmatter} url={post.url} />)}
+		</div>
+	</main>
+</Layout>

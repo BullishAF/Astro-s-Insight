@@ -1,0 +1,165 @@
+---
+import Layout from './Layout.astro';
+import PostHeader from '../components/PostHeader.astro';
+
+const { frontmatter } = Astro.props;
+
+const { title, description, date, category, author, image } = frontmatter;
+---
+
+<Layout {title} {description}>
+	<div class="container mx-auto my-4">
+		<div class="w-3/4 mx-auto my-4">
+			<PostHeader {title} {description} {date} {category} {author} {image} />
+		</div>
+		<div class="post-content my-4">
+			<div class="content w-2/3 mx-auto">
+				<article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
+					<slot />
+				</article>
+			</div>
+			<div class="sidebar"></div>
+		</div>
+	</div>
+</Layout>
+
+<style is:global lang="sass">
+	article
+		h1
+			font-size: 2.5rem
+			font-weight: 700
+			line-height: 1.2
+			margin-bottom: 1rem
+
+		h2
+			font-size: 2rem
+			font-weight: 700
+			line-height: 1.2
+			margin-bottom: 1rem
+
+		h3
+			font-size: 1.5rem
+			font-weight: 700
+			line-height: 1.2
+			margin-bottom: 1rem
+
+		h4
+			font-size: 1.25rem
+			font-weight: 700
+			line-height: 1.2
+			margin-bottom: 1rem
+
+		h5
+			font-size: 1rem
+			font-weight: 700
+			line-height: 1.2
+			margin-bottom: 1rem
+
+		h6
+			font-size: 1rem
+			font-weight: 700
+			line-height: 1.2
+			margin-bottom: 1rem
+
+		p
+			font-size: 1rem
+			font-weight: 400
+			line-height: 1.5
+			margin-bottom: 1rem
+
+		li
+			font-size: 1rem
+			font-weight: 400
+			line-height: 1.5
+			margin-bottom: 1rem
+			list-style-type: disc
+			margin-left: 2rem
+
+		ol
+			font-size: 1rem
+			font-weight: 400
+			line-height: 1.5
+			margin-bottom: 1rem
+			li
+				list-style-type: decimal
+
+		ul
+			font-size: 1rem
+			font-weight: 400
+			line-height: 1.5
+			margin-bottom: 1rem
+			li
+				list-style-type: disc
+		a
+			color: #000
+			text-decoration: underline
+
+		blockquote
+			border-left: 4px solid #000
+			padding-left: 1rem
+			margin-left: 0
+			margin-right: 0
+			margin-bottom: 1rem
+			margin-top: 1rem
+
+		img
+			max-width: 50%
+			height: auto
+			margin-bottom: 1rem
+			margin-top: 1rem
+
+		pre
+			background-color: black
+			border-radius: 3px
+			padding: 1rem
+			margin-bottom: 1rem
+			margin-top: 1rem
+
+		code
+			background-color: black
+			color: white
+			border-radius: 3px
+			padding: 0.2rem 0.4rem
+			margin-bottom: 0.2rem
+			margin-top: 0.2rem
+
+		table
+			border-collapse: collapse
+			width: 100%
+			margin-bottom: 1rem
+			margin-top: 1rem
+
+		table, th, td
+			border: 1px solid #000
+			padding: 0.5rem
+
+		th
+			background-color: #000
+			color: #fff
+			font-weight: 700
+
+		thead
+			background-color: #000
+			color: #fff
+			font-weight: 700
+
+		tbody
+			background-color: #fff
+			color: #000
+			font-weight: 400
+
+		figure
+			margin: 0
+
+		figcaption
+			font-size: 0.8rem
+			font-weight: 400
+			line-height: 1.5
+			margin-bottom: 1rem
+			margin-top: 1rem
+			text-align: center
+
+		figure img
+			margin-bottom: 0
+			margin-top: 0
+</style>
