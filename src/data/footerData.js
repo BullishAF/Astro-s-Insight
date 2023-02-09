@@ -1,13 +1,5 @@
 const footerData = [
 	{
-		name: 'Privacy',
-		path: '#',
-	},
-	{
-		name: 'Terms',
-		path: '/#',
-	},
-	{
 		name: 'blogAstro',
 		path: '/',
 	},
